@@ -1,5 +1,6 @@
-# xann
-:cop: An authorization library for express applications.
+# Xann
+:cop: An authorization library for express applications. <br>
+Still WIP, expect alot of changes and more documentation.
 
 
 # Usage :
