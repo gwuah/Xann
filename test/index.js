@@ -1,16 +1,25 @@
-const Xann = require('../lib')
+const Xann = require('../lib');
+const router = Xann.router;
 
-const auth = new Xann({appName: 'chilli'});
-const users = auth.addUsers(["admin", "manager"]);
+const auth = Xann({
+  users: ["admin","manager"]
+});
 
-const adminConfig = auth.addConfigFor('admin').forResource('customers')({
-  canAccessAllRoutes: true
-}).forResource('anonymous-customers')({
-  config: [
-  {route: "/", methods: ["GET", "POST"]},
-  {route: "/:id", methods: ["GET", "PUT", "DELETE"]}
-]}).forResource('products')({
-  config: [
-  {route: "/", methods: ["GET", "POST"]},
-  {route: "/:id", methods: ["GET", "PUT", "DELETE"]}
-]})
+auth
+  .addConfigFor('admin')
+  .forResource('customers')({
+    config: [
+      router("/").all().done()
+    ]
+  }) 
+  .forResource('anonymous-customers')({
+    config: [
+      router("/").all().done()
+    ]
+  }).forResource('products')({
+    config: [
+      router("/").get().post().done(),
+      router("/:id").get().put().delete().done(),
+      router("/:id/location/:name").get()
+    ]
+  })
