@@ -28,7 +28,7 @@ auth
     config: [
       router("/").get().post().done(),
       router("/:id").get().put().delete().done(),
-      router("/:id/location/:name").get()
+      router("/:id/location/:name").get().done()
     ]
   })
 ```
