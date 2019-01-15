@@ -1,5 +1,6 @@
 # Xann
 :cop: An authorization library for express applications. <br>
+This library is aimed at potentially large applications that has numerous user entities. This library's importance might not be felt if you just want to build a tiny backend for your application.
 
 
 # Usage :
@@ -38,34 +39,55 @@ module.exports = User;
 
 const User = require('./auth.js');
 
-const admin = {
-  canAccess: function (resource) {
-    return (req, res, next) {
-      const canAccess = User('admin').canAccess({
-        resource: resource.toLowerCase(), 
-        request: req
-      });
-      if (canAccess) {
-        next()
-      } else {
-        next(new unAuthorizedError())
-      }
+function authorizeRequestTo(resource) {
+  return (req, res, next) {
+    /* 
+      This is all on you. You can decide to populate 
+      the user's rolename on a different variable
+      (other than roleName). This just an example. 
+    */
+    const roleName = req.user.role.toLowercase();
+    const canAccess = User(roleName).canAccess({
+      resource: resource.toLowerCase(), 
+      request: req
+    });
+    if (canAccess) {
+      next()
+    } else {
+      next(new unAuthorizedError())
     }
+  }
+}
+
+function authenticateRequest() {
+  /* your authentication code here */
 }
 
 module.exports = {
-  admin
+  authenticateRequest,
+  authorizeRequestTo
 }
 
 ```
 
 ```javascript
-// filename: routes.js
+// filename: routes/customers.js
 
-const {admin} = require('./middleware.js');
+const {authorizeRequestTo} = require('./middleware.js');
 const router = require('express').Router;
 
-router('/', admin.canAccess('customer'), (req, res) => {
+router('/', authorizeRequestTo('customers'), (req, res) => {
+  console.log('admin can access this route')
+})
+```
+
+```javascript
+// filename: routes/anonymousUsers.js
+
+const {authorizeRequestTo} = require('./middleware.js');
+const router = require('express').Router;
+
+router('/', authorizeRequestTo('customer'), (req, res) => {
   console.log('admin can access this route')
 })
 ```
