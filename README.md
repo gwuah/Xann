@@ -32,7 +32,7 @@ auth
   ]
 })
 
-module.exports = User;
+module.exports = auth.User;
 ```
 
 ```javascript
