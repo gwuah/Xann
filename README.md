@@ -87,7 +87,7 @@ router('/', authorizeRequestTo('customers'), (req, res) => {
 const {authorizeRequestTo} = require('./middleware.js');
 const router = require('express').Router;
 
-router('/', authorizeRequestTo('customer'), (req, res) => {
+router('/', authorizeRequestTo('anonymous-users'), (req, res) => {
   console.log('admin can access this route')
 })
 ```
