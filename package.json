@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/gwuah/xann/issues"
   },
-  "homepage": "https://github.com/gwuah/xann#readme"
+  "homepage": "https://github.com/gwuah/xann#readme",
+  "dependencies": {
+    "regexparam": "^1.0.2"
+  }
 }
