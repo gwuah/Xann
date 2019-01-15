@@ -1,6 +1,7 @@
 # Xann
 :cop: An authorization library for express applications. <br>
-This library is aimed at potentially large applications that has numerous user entities. This library's importance might not be felt if you just want to build a tiny backend for your application.
+This library is aimed at potentially large applications that has numerous user entities. <br/>
+This library's importance might not be felt if you just want to build a tiny backend for your application.
 
 
 # Usage :
