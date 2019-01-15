@@ -1,2 +1,2 @@
-const Xann = require('./lib');
-module.exports = Xann;
+const Ottis = require('./lib');
+module.exports = Ottis;

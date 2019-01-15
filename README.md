@@ -1,18 +1,17 @@
-# Xann
+# Ottis
 :cop: An authorization library for express applications. <br>
 This library is aimed at potentially large applications that has numerous user entities. <br>
-This library's importance might not be felt if you just want to build a tiny backend for your application.
 
 
 # Usage :
-Routes are parsed with regex, hence you should declare them in the order which they are arranged in your main application. Else you'll match the wrong routes. This is a pattern that goes goes way back to expressjs itself.
+Routes are parsed with regex, hence you should declare them in the order which they are arranged in your main application. Else the regex parser used will match the wrong routes. 
 
 ```javascript
 // filename: auth.js 
-const Xann = require('../lib');
-const router = Xann.router;
+const Ottis = require('../lib');
+const router = Ottis.router;
 
-const auth = Xann({
+const auth = Ottis({
   users: ["admin","manager"]
 });
 

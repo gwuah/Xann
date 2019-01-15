@@ -1,26 +1,26 @@
 {
-  "name": "xann",
+  "name": "ottis",
   "version": "1.0.0",
-  "description": "An express authorization library.",
+  "description": "An authorization library for nodejs server applications",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gwuah/xann.git"
+    "url": "git+https://github.com/gwuah/Ottis.git"
   },
   "keywords": [
-    "express",
+    "role-based-access-control",
     "authorization",
     "nodejs"
   ],
   "author": "gwuah",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gwuah/xann/issues"
+    "url": "https://github.com/gwuah/Ottis/issues"
   },
-  "homepage": "https://github.com/gwuah/xann#readme",
+  "homepage": "https://github.com/gwuah/Ottis#readme",
   "dependencies": {
     "regexparam": "^1.0.2"
   }

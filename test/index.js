@@ -1,7 +1,7 @@
-const Xann = require('../lib');
-const router = Xann.router;
+const Ottis = require('../lib');
+const router = Ottis.router;
 
-const auth = Xann({
+const auth = Ottis({
   users: ["admin","manager"]
 });
 
