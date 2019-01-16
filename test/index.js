@@ -1,9 +1,7 @@
 const Ottis = require('../lib');
 const router = Ottis.router;
 
-const auth = Ottis({
-  users: ["admin","manager"]
-});
+const auth = Ottis(["admin","manager"]);
 
 auth
 .addConfigFor('admin')
@@ -27,6 +25,6 @@ auth
 // console.log(/^\/*/.test("/hello/world"))
 
 console.log(auth.User('admin').canAccess({
-  resource:'customers', 
-  request: {method: 'GET', url: '/'}
+  resource:'products', 
+  request: {method: 'PUT', url: '/dsjdhash'}
 }))
