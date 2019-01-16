@@ -11,18 +11,16 @@ Routes are parsed with regex, hence you should declare them in the order which t
 const Ottis = require('../lib');
 const router = Ottis.router;
 
-const auth = Ottis({
-  users: ["admin","manager"]
-});
+const auth = Ottis(["admin","manager"]);
 
 // looad configuration for various users
 auth
 .addConfigFor('admin')
 .forResource('customers')({
-  config: [router().all()]
+  config: [router("*").all()]
 }) 
 .forResource('anonymous-customers')({
-  config: [router().all()]
+  config: [router("*").all()]
 }).forResource('products')({
   config: [
     router("/").get().post().done(),
