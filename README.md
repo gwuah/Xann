@@ -1,6 +1,6 @@
 # Ottis
-:cop: An authorization library for express applications. <br>
-This library is aimed at potentially large applications that has numerous user entities. <br>
+:cop: An authorization library for nodejs server applications. <br>
+This library is ideal for both large and small applications with numerous user entities.(roles) <br>
 
 
 # Usage :
